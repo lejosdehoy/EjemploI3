@@ -9,11 +9,16 @@
 		<h:form>
 			<h:panelGrid columns="2" cellpadding="5">
 				<h:outputLabel value="Usuario:" />
-				<h:inputText value="#{loginBean.nombre}" />
+				<h:inputText value="#{loginBean.nombre}" required="true" label="Usuario">
+					<f:validateLength minimum="3" maximum="10" />
+				</h:inputText>
 				<h:outputLabel value="Clave:" />
-				<h:inputSecret value="#{loginBean.pw}" />
+				<h:inputSecret value="#{loginBean.pw}" required="true" label="Clave">
+					<f:validateLength minimum="3" maximum="10" />
+				</h:inputSecret>
 				<h:commandButton value="Login" action="#{loginBean.validarLogin}" />
 			</h:panelGrid>
+			 <h:messages style="color:red;margin:8px;" showDetail="false" showSummary="true"/>
 		</h:form>
 
 	</h:body>
